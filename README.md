@@ -5,7 +5,11 @@
 
 ### frontEnd
 flutter
+flutter 설치(https://flutter.dev/docs/get-started/install)
+ > flutter 설치 후 Get Started 따라 진행
+ > flutter 2.0 > web (https://flutter.dev/docs/get-started/web)
 디자인 출처 : argon flutter (https://www.creative-tim.com/product/argon-flutter)
+ > flutter web design (https://gallery.flutter.dev/#/)
 
 ### backEnd
 nestJs (https://docs.nestjs.com/)
