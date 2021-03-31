@@ -16,6 +16,4 @@
 [flutter web design] (https://gallery.flutter.dev/#/)
 
 ### Run
-터미널에서
-  flutter run -d chrome
-입력
+<pre>flutter run -d chrome</pre>
