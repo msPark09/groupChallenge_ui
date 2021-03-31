@@ -1,4 +1,4 @@
-# [group challenge]
+# [group challenge] :metal:
 
 그룹별 도전과제 수행하기 웹 & 앱
 1차 study 과제입니다.
@@ -17,3 +17,9 @@
 
 ### Run
 <pre>flutter run -d chrome</pre>
+
+### Sample
+_이미지는 변경예정_  
+<a href="#"><img src="https://github.com/msPark09/groupChallenge_ui/blob/master/sample/image/화면캡쳐1.jpg" width="30%" alt="sample image1"></a>
+<a href="#"><img src="https://github.com/msPark09/groupChallenge_ui/blob/master/sample/image/화면캡쳐2.jpg" width="30%" alt="sample image2"></a>  
+<a href="#"><img src="https://github.com/msPark09/groupChallenge_ui/blob/master/sample/image/화면캡쳐3.jpg" width="30%" alt="sample image3"></a>
