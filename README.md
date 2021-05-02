@@ -9,6 +9,11 @@
 [flutter 설치] (https://flutter.dev/docs/get-started/install)
  > flutter 설치 후 Get Started 따라 진행  
  > web build 필요 (https://flutter.dev/docs/get-started/web)
+ >> flutter sdk 다운로드 후 path 설정 : 환경변수 .../flutter/bin 위치 path에 추가
+ >> 설치 확인
+ >>  <pre> flutter doctor </pre>
+ > Android Studio 설치 - Android SDK 설치 위함.
+ > 개발 툴 : Android Studio or VScode
 
 #### 2. 디자인 출처
 [argon flutter] (https://www.creative-tim.com/product/argon-flutter)
