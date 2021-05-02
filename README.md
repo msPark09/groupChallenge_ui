@@ -20,7 +20,7 @@
 
 [flutter web design] (https://gallery.flutter.dev/#/)
 
- > [UI Design](https://xd.adobe.com/view/f322a8c2-645a-4bac-b1e1-f7869649b4ad-a671/)
+ > [UI Design] (https://xd.adobe.com/view/f322a8c2-645a-4bac-b1e1-f7869649b4ad-a671/)
 
 ### Run
 <pre>flutter run -d chrome</pre>
