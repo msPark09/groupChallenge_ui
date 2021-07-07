@@ -51,6 +51,9 @@ dependencies:
 
   # 설정정보 저장
   shared_preferences: ^0.5.12+2
+  
+  # 페이징페키지
+  flutter_pagewise: ^2.0.1
 
 dev_dependencies:
   flutter_test:
