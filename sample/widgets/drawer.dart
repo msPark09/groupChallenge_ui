@@ -1,9 +1,8 @@
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:argon_flutter/constants/Theme.dart';
-
-import 'package:argon_flutter/widgets/drawer-tile.dart';
+import 'drawer-tile.dart';
 
 class ArgonDrawer extends StatelessWidget {
   final String currentPage;

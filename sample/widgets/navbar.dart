@@ -1,9 +1,8 @@
-import 'package:argon_flutter/constants/app_constants.dart';
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:argon_flutter/constants/Theme.dart';
 
-import 'package:argon_flutter/widgets/input.dart';
+import 'input.dart';
 
 class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -130,19 +129,33 @@ class _NavbarState extends State<Navbar> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, RoutePaths.Setting);
-                              },
-                              child: IconButton(
-                                  icon: Icon(Icons.settings,
-                                      color: !widget.transparent
-                                          ? (widget.bgColor == ArgonColors.white
-                                              ? ArgonColors.initial
-                                              : ArgonColors.white)
-                                          : ArgonColors.white,
-                                      size: 22.0),
-                                  onPressed: null)),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/pro');
+                            },
+                            child: IconButton(
+                                icon: Icon(Icons.notifications_active,
+                                    color: !widget.transparent
+                                        ? (widget.bgColor == ArgonColors.white
+                                            ? ArgonColors.initial
+                                            : ArgonColors.white)
+                                        : ArgonColors.white,
+                                    size: 22.0),
+                                onPressed: null),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/pro');
+                            },
+                            child: IconButton(
+                                icon: Icon(Icons.shopping_basket,
+                                    color: !widget.transparent
+                                        ? (widget.bgColor == ArgonColors.white
+                                            ? ArgonColors.initial
+                                            : ArgonColors.white)
+                                        : ArgonColors.white,
+                                    size: 22.0),
+                                onPressed: null),
+                          ),
                         ],
                       )
                   ],

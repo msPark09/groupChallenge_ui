@@ -9,7 +9,7 @@ class RoutePaths {
   static const String Splash = 'splash';
   static const String Login = 'login';
   static const String Profile = '/';
-  static const String Register = 'register';
+  static const String RegisterUser = 'register-user';
   static const String Setting = 'setting';
 }
 

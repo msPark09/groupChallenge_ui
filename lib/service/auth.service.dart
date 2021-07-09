@@ -55,20 +55,6 @@ class AuthService {
     return prefs.getString('access_token');
   }
 
-  // store Username(ID)
-  Future<void> storeUsername(String username) async {
-    // shared preferences 에 저장
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('username', username);
-  }
-
-  // get Username(ID)
-  Future<String> getUsername() async {
-    // shared preferences 값을 읽어온다.
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('username');
-  }
-
   // store FCM token
   Future<void> storeFcmToken(String fcmToken) async {
     // shared preferences 에 저장
@@ -90,10 +76,9 @@ class AuthService {
     // shared preferences 에 저장
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    // await prefs.setString('username', payLoad['sub']);   // 사용자ID
-    // await prefs.setString('fullname', payLoad['name']); // 사용자명
-    // await prefs.setString('auth', payLoad['auth']); // 권한그룹코드
-    // await prefs.setString('authtype', payLoad['authtype']); // 권한그룹유형
+    await prefs.setString('id', payLoad['userId']); // 사용자ID
+    await prefs.setString('email', payLoad['email']); // 사용자ID
+    await prefs.setString('name', payLoad['name']); // 사용자명
   }
 
   // store UserInfo (username, name, auth ...)
@@ -103,11 +88,9 @@ class AuthService {
     // shared preferences 에 저장
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    userInfoMap.putIfAbsent('userId', () => prefs.getString('userId'));
-    userInfoMap.putIfAbsent('username', () => prefs.getString('username'));
-    // userInfoMap.putIfAbsent('fullname', () => prefs.getString('fullname'));
-    // userInfoMap.putIfAbsent('auth', () => prefs.getString('auth'));
-    // userInfoMap.putIfAbsent('authtype', () => prefs.getString('authtype'));
+    userInfoMap.putIfAbsent('userId', () => prefs.getString('id'));
+    userInfoMap.putIfAbsent('email', () => prefs.getString('email'));
+    userInfoMap.putIfAbsent('name', () => prefs.getString('name'));
 
     print('★★★★★ userInfoMap => ${userInfoMap.toString()}');
     return userInfoMap;

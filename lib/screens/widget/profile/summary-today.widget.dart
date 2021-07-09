@@ -7,7 +7,7 @@ class SummaryTodayWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 25.0, left: 25.0),
+          padding: const EdgeInsets.only(right: 1.0, left: 1.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

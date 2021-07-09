@@ -1,14 +1,13 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:argon_flutter/constants/app_constants.dart';
 import 'package:argon_flutter/model/base.model.dart';
 import 'package:argon_flutter/model/base_handler.dart';
-import 'package:argon_flutter/model/dto/login-response.dart';
 import 'package:argon_flutter/model/dto/user_info.dto.dart';
 import 'package:argon_flutter/service/auth.service.dart';
 import 'package:argon_flutter/service/helper/jwt.helper.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart';
 
 class AuthModel extends BaseModel with BaseHandler {
   final JwtHelper _jwt;
@@ -21,56 +20,63 @@ class AuthModel extends BaseModel with BaseHandler {
   String username; // 사용자 ID
   bool isLoggedIn = false;
 
+/** 
+ * 유효한 로그인 상태인지 확인
+*/
   Future<void> loggedIn(context, scaffoldKey) async {
     // 화면을 바로 draw한 후
+    // 유효한 로그인 상태인지 확인한다.
     setBusy(true);
     var token = await _auth.getToken();
     print('★★★★★ AuthModel prefs token => $token');
+    String path = RoutePaths.Login;
 
-    // if (token != null && !_jwt.expired(token)) {
-    //   Response response = await _auth.authenticate(); // 유효한 token 서버 인증
-    // if (response.statusCode == 200) {
-    // Future.delayed(Duration(seconds: 1), () {
-    //   Navigator.of(context).pushNamedAndRemoveUntil(
-    //       RoutePaths.Profile, (Route<dynamic> route) => false);
-    // });
-    //   } else {
-    Navigator.of(context).pushNamedAndRemoveUntil(
-        RoutePaths.Login, (Route<dynamic> route) => false);
-    //   }
-    // } else {
-    //   Navigator.of(context).pushNamedAndRemoveUntil(
-    //       RoutePaths.Login, (Route<dynamic> route) => false);
-    // }
+    if (token != null && !_jwt.expired(token)) {
+      Response response = await _auth.authenticate(); // 유효한 token 서버 인증
+      if (response.statusCode == 200) {
+        path = RoutePaths.Profile;
+      }
+    }
 
-    // if (token != null && !_jwt.expired(token)) {
-    isLoggedIn = true;
-    // } else {
-    //   isLoggedIn = false;
-    // }
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(path, (Route<dynamic> route) => false);
+    });
+
+    if (token != null && !_jwt.expired(token)) {
+      isLoggedIn = true;
+    } else {
+      isLoggedIn = false;
+    }
 
     setBusy(false);
   }
 
+/**
+ * 로그인 후 유저내용 가져오기
+ */
   Future<void> loadUsernameAndExtraInfo(scaffoldKey) async {
     setBusy(true);
 
     // 로그인화면으로 이동했으므로 token이 저장되어 있다면 clear처리함.
     await _auth.clearToken();
 
-    username = await _auth.getUsername();
+    var userInfo = await _auth.getUserInfo();
+    username = userInfo['name'];
 
     setBusy(false);
   }
 
+/**
+ * 로그인
+ */
   Future<bool> login(
-      String usernameText, String passwordText, scaffoldKey, context) async {
+      String emailText, String passwordText, scaffoldKey, context) async {
     setBusy(true);
 
     var loginUser = UserInfoDto();
-    username = usernameText;
 
-    loginUser.userId = username;
+    loginUser.userId = emailText;
     loginUser.password = passwordText;
 
     print('>>>>> ${loginUser.toJson()}');

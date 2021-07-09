@@ -1,14 +1,12 @@
 import 'dart:ui';
+
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:argon_flutter/constants/Theme.dart';
-
-//widgets
-import 'package:argon_flutter/widgets/navbar.dart';
-import 'package:argon_flutter/widgets/input.dart';
-
-import 'package:argon_flutter/widgets/drawer.dart';
+import '../widgets/drawer.dart';
+import '../widgets/input.dart';
+import '../widgets/navbar.dart';
 
 class Register extends StatefulWidget {
   @override

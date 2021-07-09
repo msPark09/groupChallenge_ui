@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           )
         ],
         child: MaterialApp(
-          title: '모두함께다이어트',
+          title: '모두함께',
           theme: ThemeData(fontFamily: 'OpenSans'),
           debugShowCheckedModeBanner: false,
           initialRoute: RoutePaths.Splash,

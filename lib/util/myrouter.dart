@@ -1,9 +1,9 @@
 import 'package:argon_flutter/constants/app_constants.dart';
 import 'package:argon_flutter/screens/login.dart';
-import 'package:argon_flutter/screens/onboarding.dart';
-import 'package:argon_flutter/screens/profile-detail.dart';
 import 'package:argon_flutter/screens/profile.dart';
-import 'package:argon_flutter/screens/register.dart';
+import 'package:argon_flutter/screens/register-user.dart';
+import 'package:argon_flutter/screens/splash.dart';
+import 'package:argon_flutter/screens/user-edit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,15 +13,15 @@ class MyRouter {
       case RoutePaths.Profile:
         return MaterialPageRoute(builder: (_) => Profile());
       case RoutePaths.Splash:
-        return MaterialPageRoute(builder: (_) => Onboarding());
+        return MaterialPageRoute(builder: (_) => Splash());
       case RoutePaths.Login:
         return MaterialPageRoute(builder: (_) => Login(), maintainState: true);
-      case RoutePaths.Register:
+      case RoutePaths.RegisterUser:
         return MaterialPageRoute(
-            builder: (_) => Register(), maintainState: true);
+            builder: (_) => RegisterUser(), maintainState: true);
       case RoutePaths.Setting:
         return MaterialPageRoute(
-            builder: (_) => ProfileDetail(), maintainState: true);
+            builder: (_) => UserEdit(), maintainState: true);
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

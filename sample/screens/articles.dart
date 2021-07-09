@@ -1,15 +1,13 @@
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:flutter/material.dart';
 
-import 'package:argon_flutter/constants/Theme.dart';
-
-//widgets
-import 'package:argon_flutter/widgets/drawer.dart';
-import 'package:argon_flutter/widgets/navbar.dart';
-import 'package:argon_flutter/widgets/card-horizontal.dart';
-import 'package:argon_flutter/widgets/card-small.dart';
-import 'package:argon_flutter/widgets/card-square.dart';
-import 'package:argon_flutter/widgets/card-category.dart';
-import 'package:argon_flutter/widgets/slider-product.dart';
+import '../widgets/card-category.dart';
+import '../widgets/card-horizontal.dart';
+import '../widgets/card-small.dart';
+import '../widgets/card-square.dart';
+import '../widgets/drawer.dart';
+import '../widgets/navbar.dart';
+import '../widgets/slider-product.dart';
 
 final Map<String, Map<String, dynamic>> articlesCards = {
   "Ice Cream": {

@@ -1,10 +1,12 @@
 import 'dart:ui';
 
+import 'package:argon_flutter/constants/Image_url.dart';
 import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/constants/app_constants.dart';
 import 'package:argon_flutter/model/view/auth.model.dart';
+import 'package:argon_flutter/widgets/base-input.dart';
+import 'package:argon_flutter/widgets/base-text-button.dart';
 import 'package:argon_flutter/widgets/base.widget.dart';
-import 'package:argon_flutter/widgets/input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,12 +18,12 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final double height = window.physicalSize.height;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    _usernameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -37,8 +39,8 @@ class _LoginState extends State<Login> {
         builder: (context, model, child) {
           if (!model.busy &&
               model.username != null &&
-              _usernameController.text.isEmpty) {
-            _usernameController.text = model.username;
+              _emailController.text.isEmpty) {
+            _emailController.text = model.username;
           }
           return Scaffold(
               body: Stack(
@@ -46,7 +48,7 @@ class _LoginState extends State<Login> {
               Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/img/register-bg.png"),
+                        image: AssetImage(ImageUrl.registerBg),
                         fit: BoxFit.cover)),
               ),
               SafeArea(
@@ -122,9 +124,9 @@ class _LoginState extends State<Login> {
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.all(8.0),
-                                                  child: Input(
+                                                  child: BaseInput(
                                                       controller:
-                                                          _usernameController,
+                                                          _emailController,
                                                       placeholder: "Email",
                                                       prefixIcon:
                                                           Icon(Icons.email)),
@@ -132,7 +134,7 @@ class _LoginState extends State<Login> {
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.all(8.0),
-                                                  child: Input(
+                                                  child: BaseInput(
                                                       controller:
                                                           _passwordController,
                                                       placeholder: "Password",
@@ -147,21 +149,12 @@ class _LoginState extends State<Login> {
                                               child: Center(
                                                   child: Column(
                                                 children: [
-                                                  TextButton(
-                                                    style: TextButton.styleFrom(
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.0),
-                                                      ),
-                                                      backgroundColor:
-                                                          ArgonColors.primary,
-                                                    ),
+                                                  BaseTextButton(
+                                                    buttonLabel: "LOGIN",
                                                     onPressed: () async {
                                                       var loginSuccess =
                                                           await model.login(
-                                                              _usernameController
+                                                              _emailController
                                                                   .text,
                                                               _passwordController
                                                                   .text,
@@ -182,23 +175,10 @@ class _LoginState extends State<Login> {
                                                             '[$runtimeType] : Login failed');
                                                       }
                                                     },
-                                                    child: Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                left: 16.0,
-                                                                right: 16.0,
-                                                                top: 12,
-                                                                bottom: 12),
-                                                        child: Text(
-                                                          "LOGIN",
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontSize: 16.0,
-                                                              color: ArgonColors
-                                                                  .white),
-                                                        )),
+                                                    backgroundColor:
+                                                        ArgonColors.primary,
+                                                    textColor:
+                                                        ArgonColors.white,
                                                   ),
                                                   Padding(
                                                     padding:
@@ -216,7 +196,7 @@ class _LoginState extends State<Login> {
                                                                     context)
                                                                 .pushNamed(
                                                                     RoutePaths
-                                                                        .Register)
+                                                                        .RegisterUser)
                                                           },
                                                         ),
                                                         SizedBox(

@@ -2,19 +2,16 @@ import 'dart:ui';
 
 import 'package:argon_flutter/constants/Theme.dart';
 import 'package:argon_flutter/model/view/user_info.model.dart';
-import 'package:argon_flutter/screens/widget/group-list-x.widget.dart';
-import 'package:argon_flutter/screens/widget/summary-today.widget.dart';
-import 'package:argon_flutter/screens/widget/user-info.widget.dart';
+import 'package:argon_flutter/screens/widget/profile/user-info.widget.dart';
 import 'package:argon_flutter/widgets/base.widget.dart';
-import 'package:argon_flutter/widgets/drawer.dart';
 //widgets
-import 'package:argon_flutter/widgets/navbar.dart';
+import 'package:argon_flutter/widgets/navibar.dart';
 import 'package:argon_flutter/widgets/profile-divider.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
-class ProfileDetail extends StatelessWidget {
+class UserEdit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -27,9 +24,8 @@ class ProfileDetail extends StatelessWidget {
         onModelReady: (model) => model.loadUserInfo(_scaffoldKey),
         builder: (context, model, child) => Scaffold(
             extendBodyBehindAppBar: true,
-            appBar: Navbar(
-              title: "Profile",
-              transparent: true,
+            appBar: Navibar(
+              title: "프로필수정",
               backButton: true,
             ),
             backgroundColor: ArgonColors.bgColorScreen,
@@ -76,9 +72,7 @@ class ProfileDetail extends StatelessWidget {
                                       Expanded(
                                         child: Column(
                                           children: [
-                                            UserInfoWidget(
-                                              editable: true,
-                                            ),
+                                            UserInfoWidget(),
                                             ProfileDividerWidget(),
                                           ],
                                         ),

@@ -1,12 +1,10 @@
+import 'package:argon_flutter/constants/Theme.dart';
 import 'package:flutter/material.dart';
 
-import 'package:argon_flutter/constants/Theme.dart';
-
-//widgets
-import 'package:argon_flutter/widgets/navbar.dart';
-import 'package:argon_flutter/widgets/drawer.dart';
-import 'package:argon_flutter/widgets/input.dart';
-import 'package:argon_flutter/widgets/table-cell.dart';
+import '../widgets/drawer.dart';
+import '../widgets/input.dart';
+import '../widgets/navbar.dart';
+import '../widgets/table-cell.dart';
 
 class Elements extends StatefulWidget {
   @override
